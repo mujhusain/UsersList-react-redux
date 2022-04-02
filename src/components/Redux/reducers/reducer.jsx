@@ -24,6 +24,11 @@ export const userReducer = (state = initialState, { type, payload }) => {
       };
 
     case "SELECT_USER":
+        // if already id is available then remove it from selectedUserIds array
+        if(state.selectedUserIds.includes(payload)){
+        let findIndex = state.selectedUserIds.indexOf(payload);
+        state.selectedUserIds.splice(findIndex, 1);
+        }
       return {
         ...state,
         selectedUserIds:[...state.selectedUserIds, payload],
@@ -31,12 +36,18 @@ export const userReducer = (state = initialState, { type, payload }) => {
 
     case "DELETE_USER":
       let updatedList = state.list.filter((user) => user.id != payload);
-      console.log("deleteReducers",payload)
-      console.log("deleteReducersList",updatedList)
 
       return {
         ...state,
         list: updatedList,
+      };
+    case "DELETE_ALL_SELECTED_USER":
+       let newUpdatedList = state.list.filter((user) => !state.selectedUserIds.includes(user.id));
+
+      return {
+        ...state,
+        list: newUpdatedList,
+        selectedUserIds:[]
       };
 
     default:

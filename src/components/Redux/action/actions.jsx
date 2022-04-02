@@ -34,3 +34,8 @@ export const deleteUser = (payload) => {
     payload,
   };
 };
+export const deleteAllSelectedUser = () => {
+  return {
+    type: ActionTypes.DELETE_ALL_SELECTED_USER,
+  };
+};
