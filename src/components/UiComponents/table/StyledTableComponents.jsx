@@ -32,8 +32,6 @@ border-collapse: collapse;
 /* hover button effect */
 & tbody tr td:nth-child(5) button:hover {
     outline: none;
-    height: 30px;
-    width: 30px;
     color: red;
     background-color: #000000;
     border-radius: 50%;

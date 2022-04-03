@@ -14,20 +14,17 @@ const SearchUser = () => {
     )
   );
 
-  console.log(searchText);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(setFilteredList(searchText));
-    console.log(search);
   }, [search]);
 
   return (
     <InputDiv className="search-box">
       <Input type="text" onChange={handleChange} placeholder="Search" />
       <SearchButton>
-        <i className="fas fa-search"></i>
+        <i className="fa fa-search"></i>
       </SearchButton>
     </InputDiv>
   );

@@ -28,7 +28,7 @@ const Pagination = () => {
         <PagiButton
           key={i + 1}
           onClick={() => dispatch(changePaginationPage(i + 1))}
-          active={currentPage === i + 1 ? "active" : null}
+          active={currentPage === i+1 ? "active" : null}
         >
           {i + 1}
         </PagiButton>

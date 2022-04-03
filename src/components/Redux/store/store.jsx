@@ -10,5 +10,4 @@ const store = createStore(
   //And Redux DevTools
   composeEnhancers(applyMiddleware(thunk))
 );
-console.log(store)
 export default store;
