@@ -3,17 +3,25 @@ import { fetchUsersList } from "./Redux/action/actions";
 import SearchUser from "./UiComponents/search_ui/SearchUser";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import ItemRow from "./UiComponents/UserShow";
-import { Table } from "./UiComponents/StyledTableComponents";
+import ItemRow from "./UiComponents/table/UserShow";
+import { Table } from "./UiComponents/table/StyledTableComponents";
 import Footer from "./UiComponents/footer/Footer";
 import Navbar from "./UiComponents/navbar/Navbar";
+
 const Admin_UI = () => {
   const dispatch = useDispatch();
+  //accessing the state from the store
+  let { currentPage, list, searchResultList } = useSelector(
+    (state) => state.userReducer
+  );
 
-const userList = useSelector((state) =>state.userReducer.list);
-console.log("userList",userList);
+  //If searchResultList is not empty, then use searchResultList, else use list
+  list =
+    searchResultList.length > 0
+      ? searchResultList
+      : list.slice((currentPage - 1) * 10, currentPage * 10);
 
-const fetchUserList = () => {
+  const fetchUserList = () => {
     axios
       .get(
         "https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json"
@@ -29,8 +37,6 @@ const fetchUserList = () => {
     // Set new data in store after each reload only
     fetchUserList();
   }, []);
-
-  
 
   return (
     <div>
@@ -48,9 +54,11 @@ const fetchUserList = () => {
             </tr>
           </thead>
           <tbody>
-            {userList? userList.map((item, index) => {
-              return <ItemRow key={index} user={item} />;
-            }): []}
+            {list
+              ? list.map((item, index) => {
+                  return <ItemRow key={index} user={item} />;
+                })
+              : []}
           </tbody>
         </Table>
       </div>

@@ -1,19 +1,24 @@
+//Initial state of the reducer
 const initialState = {
   list: [],
+  currentPage:1,
   searchResultList: [],
   selectedUserIds: [],
   searchText: "",
 };
 
+//Action types
 export const userReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    
+    //FOR FETCHING USERS LIST
     case "FETCH_USERS_LIST":
       return { ...state, list: payload };
-      
-    case "SET_USERS_LIST":
-      return { ...state, list: payload };
 
+    //FOR SEARCHING USERS LIST
+    case "SET_FILTERED_LIST":
+      return { ...state, searchResultList: payload };
+
+    //FOR UPDATING USER
     case "UPDATE_USER":
       return {
         ...state,
@@ -23,6 +28,7 @@ export const userReducer = (state = initialState, { type, payload }) => {
         roll: payload.roll,
       };
 
+    //FOR SELECTING USER
     case "SELECT_USER":
         // if already id is available then remove it from selectedUserIds array
         if(state.selectedUserIds.includes(payload)){
@@ -34,6 +40,7 @@ export const userReducer = (state = initialState, { type, payload }) => {
         selectedUserIds:[...state.selectedUserIds, payload],
       };
 
+      //For deleting user
     case "DELETE_USER":
       let updatedList = state.list.filter((user) => user.id != payload);
 
@@ -41,6 +48,8 @@ export const userReducer = (state = initialState, { type, payload }) => {
         ...state,
         list: updatedList,
       };
+    
+      //For deleting all selected user
     case "DELETE_ALL_SELECTED_USER":
        let newUpdatedList = state.list.filter((user) => !state.selectedUserIds.includes(user.id));
 
@@ -48,6 +57,13 @@ export const userReducer = (state = initialState, { type, payload }) => {
         ...state,
         list: newUpdatedList,
         selectedUserIds:[]
+      };
+    
+      //For changing pagination page
+    case "PAGINATION_CURRENT_PAGE":
+      return {
+        ...state,
+        currentPage:state.currentPage+payload, 
       };
 
     default:

@@ -7,9 +7,9 @@ export const fetchUsersList = (payload) => {
   };
 };
 
-export const setUsersList = (payload) => {
+export const setFilteredList = (payload) => {
     return {
-      type: ActionTypes.SET_USERS_LIST,
+      type: ActionTypes.SET_FILTERED_LIST,
       payload:payload,
     };
   };
@@ -37,5 +37,11 @@ export const deleteUser = (payload) => {
 export const deleteAllSelectedUser = () => {
   return {
     type: ActionTypes.DELETE_ALL_SELECTED_USER,
+  };
+};
+export const changePaginationPage = (payload) => {
+  return {
+    type: ActionTypes.PAGINATION_CURRENT_PAGE,
+    payload:payload,
   };
 };

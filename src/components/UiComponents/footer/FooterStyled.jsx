@@ -53,8 +53,8 @@ cursor: pointer;
 border-radius: 20px;
 `
 export const PagiButton = styled.button`
-background-color: #7a7a7a;
-color: #fff;
+background-color:${props => props.active ? "#0B95FE" : "#9e9b9b"};
+color: ${props => props.active ? "#ddd" : "#000000"};
 border: none;
 font-weight: bold;
 width: 30px;

@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { deleteUser, setUserList, selectUser } from "../Redux/action/actions";
+import { deleteUser, selectUser } from "../../Redux/action/actions";
 
 const ItemRow = (props) => {
 const dispatch = useDispatch();
