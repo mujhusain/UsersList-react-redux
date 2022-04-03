@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const NavbarDiv = styled.div`
+export const NavbarDiv = styled.div`
   width: 100%;
   height: 60px;
   background-color: #756f6f;
@@ -18,17 +18,3 @@ const NavbarDiv = styled.div`
         height: 50px;
     }
 `;
-
-const Navbar = () => {
-  return (
-    <NavbarDiv className="navbar">
-      <div className="container">
-        <div className="content has-text-centered">
-          <h1>ADMIN UI</h1>
-        </div>
-      </div>
-    </NavbarDiv>
-  );
-};
-
-export default Navbar;

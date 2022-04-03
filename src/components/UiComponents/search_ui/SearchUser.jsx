@@ -1,4 +1,4 @@
-import { Input, InputDiv, SearchButton } from "./StyledTableComponents";
+import { Input, InputDiv, SearchButton } from './searchStyled';
 
 const SearchUser = (props) => {
   return (

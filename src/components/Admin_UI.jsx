@@ -1,12 +1,12 @@
 import axios from "axios";
 import { fetchUsersList } from "./Redux/action/actions";
-import SearchUser from "./UiComponents/SearchUser";
+import SearchUser from "./UiComponents/search_ui/SearchUser";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import ItemRow from "./UiComponents/UserShow";
 import { Table } from "./UiComponents/StyledTableComponents";
-import Footer from "./UiComponents/Footer";
-import Navbar from "./UiComponents/Navbar";
+import Footer from "./UiComponents/footer/Footer";
+import Navbar from "./UiComponents/navbar/Navbar";
 const Admin_UI = () => {
   const dispatch = useDispatch();
 

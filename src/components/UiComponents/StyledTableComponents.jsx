@@ -1,38 +1,6 @@
 import styled from 'styled-components';
 
-export const InputDiv= styled.div`
-border: 1px solid #ddd;
-border-radius: 5px;
-padding: 5px;
-display: flex;
-height: 30px;
-justify-content: center;
-align-items: center;
-margin-bottom: 10px;
-margin-top: 65px;
-`
 
-export const Input = styled.input`
-width: 68%;
-height: 25px;
-font-size: medium;
-padding:0 10px;
-outline-style: none;
-`
-export const SearchButton= styled.button`
-width: 9%;
-height: 29px;
-font-size: medium;
-padding:2px 5px;
-margin-left: 2vw;
-/* Hover on Search Button */
-&:hover {
-    background-color: #ddd;
-    outline: none;
-    border: #ddd;
-    cursor: pointer;
-}
-`
 export const Table = styled.table`
 width: 80%;
 margin: 0 auto;
@@ -55,15 +23,19 @@ border-collapse: collapse;
 & tbody tr td:nth-child(5) button {
     margin-right: 0.5vw;
     border: none;
-    cursor: pointer;
+    outline: none;
+    height: 30px;
+    width: 30px;
     background-color: transparent;
+    cursor: pointer;
 }
 /* hover button effect */
 & tbody tr td:nth-child(5) button:hover {
     outline: none;
     height: 30px;
     width: 30px;
-    background-color: #ffffff;
+    color: red;
+    background-color: #000000;
     border-radius: 50%;
 }
 & tbody tr td:nth-child(1) {
