@@ -44,18 +44,24 @@ export const userReducer = (state = initialState, { type, payload }) => {
     case "DELETE_USER":
       let updatedList = state.list.filter((user) => user.id != payload);
 
+      let filteredList = state.searchResultList.filter((user) => user.id != payload);
+
       return {
         ...state,
         list: updatedList,
+        searchResultList:filteredList,
       };
     
       //For deleting all selected user
     case "DELETE_ALL_SELECTED_USER":
        let newUpdatedList = state.list.filter((user) => !state.selectedUserIds.includes(user.id));
 
+       let newFilterdUpdatedList = state.searchResultList.filter((user) => !state.selectedUserIds.includes(user.id));
+
       return {
         ...state,
         list: newUpdatedList,
+        searchResultList:newFilterdUpdatedList,
         selectedUserIds:[]
       };
     
