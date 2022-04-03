@@ -6,6 +6,7 @@ width: 80%;
 margin: 0 auto;
 border: 1px solid #ddd;
 border-collapse: collapse;
+margin-bottom: 3.5rem;
 /* Table head style */
 & thead tr th {
     padding: 10px;
